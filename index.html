@@ -1,261 +1,297 @@
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copa do Mundo</title>
 
-    html {
-        scroll-behavior: smooth;
-    }
-
-    body {
-        font-family: Arial, Helvetica, sans-serif;
-        background-color: #f4f4f4;
-        color: #222;
-        line-height: 1.6;
-    }
-
-    /* Cabeçalho */
-    header {
-        background: linear-gradient(135deg, #009c3b, #006b28);
-        color: white;
-        padding: 20px 8%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    header h1 {
-        font-size: 28px;
-    }
-
-    nav ul {
-        list-style: none;
-        display: flex;
-        gap: 25px;
-    }
-
-    nav a {
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-        transition: 0.3s;
-    }
-
-    nav a:hover {
-        color: #ffdf00;
-    }
-
-    /* Banner */
-    .hero {
-        min-height: 500px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        color: white;
-        padding: 40px 20px;
-        background:
-            linear-gradient(rgba(0, 70, 30, 0.75), rgba(0, 40, 20, 0.8)),
-            url("https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1600&q=80")
-            center/cover;
-    }
-
-    .hero-content {
-        max-width: 800px;
-    }
-
-    .hero h2 {
-        font-size: 55px;
-        margin-bottom: 15px;
-        text-transform: uppercase;
-    }
-
-    .hero p {
-        font-size: 20px;
-        margin-bottom: 30px;
-    }
-
-    .btn {
-        display: inline-block;
-        background-color: #ffdf00;
-        color: #006b28;
-        padding: 12px 25px;
-        border-radius: 25px;
-        text-decoration: none;
-        font-weight: bold;
-        transition: 0.3s;
-    }
-
-    .btn:hover {
-        background-color: white;
-        transform: scale(1.05);
-    }
-
-    /* Conteúdo geral */
-    section {
-        padding: 70px 8%;
-    }
-
-    .section-title {
-        text-align: center;
-        margin-bottom: 40px;
-        color: #006b28;
-        font-size: 35px;
-    }
-
-    /* Sobre */
-    .about {
-        background-color: white;
-    }
-
-    .about-content {
-        max-width: 900px;
-        margin: auto;
-        text-align: center;
-        font-size: 18px;
-    }
-
-    /* Cards */
-    .cards {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 25px;
-    }
-
-    .card {
-        background-color: white;
-        padding: 30px;
-        border-radius: 12px;
-        text-align: center;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        transition: 0.3s;
-    }
-
-    .card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    }
-
-    .card .icon {
-        font-size: 50px;
-        margin-bottom: 15px;
-    }
-
-    .card h3 {
-        color: #009c3b;
-        margin-bottom: 10px;
-    }
-
-    /* Seleções */
-    .teams {
-        background-color: #eeeeee;
-    }
-
-    .team-list {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
-        max-width: 1000px;
-        margin: auto;
-    }
-
-    .team {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        text-align: center;
-        font-size: 18px;
-        font-weight: bold;
-        transition: 0.3s;
-    }
-
-    .team:hover {
-        background-color: #009c3b;
-        color: white;
-    }
-
-    /* Curiosidades */
-    .facts {
-        background-color: white;
-    }
-
-    .facts ul {
-        max-width: 800px;
-        margin: auto;
-        list-style: none;
-    }
-
-    .facts li {
-        background-color: #f4f4f4;
-        margin-bottom: 15px;
-        padding: 18px;
-        border-left: 5px solid #ffdf00;
-        border-radius: 5px;
-    }
-
-    /* Rodapé */
-    footer {
-        background-color: #003d1a;
-        color: white;
-        text-align: center;
-        padding: 25px;
-    }
-
-    footer span {
-        color: #ffdf00;
-    }
-
-    /* Responsividade */
-    @media (max-width: 900px) {
-        .cards {
-            grid-template-columns: 1fr;
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
         }
 
-        .team-list {
-            grid-template-columns: repeat(2, 1fr);
+        body {
+            background: #f4f4f4;
+            color: #222;
         }
 
-        .hero h2 {
-            font-size: 40px;
-        }
-    }
-
-    @media (max-width: 600px) {
         header {
-            flex-direction: column;
-            gap: 15px;
+            background: linear-gradient(135deg, #006437, #009c3b);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
         }
 
-        nav ul {
-            gap: 12px;
-            flex-wrap: wrap;
-            justify-content: center;
+        header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 20px;
+        }
+
+        nav {
+            background: #005c35;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ffd700;
         }
 
         section {
-            padding: 50px 5%;
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
         }
 
-        .team-list {
-            grid-template-columns: 1fr;
-        }
-
-        .hero {
-            min-height: 450px;
-        }
-
-        .hero h2 {
+        h2 {
+            color: #006437;
+            margin-bottom: 20px;
             font-size: 32px;
         }
 
-        .hero p {
-            font-size: 17px;
+        .hero {
+            text-align: center;
         }
-    }
-</style>
+
+        .hero img {
+            width: 100%;
+            max-width: 900px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: #009c3b;
+            margin-bottom: 10px;
+        }
+
+        .tabela {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .tabela th,
+        .tabela td {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .tabela th {
+            background: #006437;
+            color: white;
+        }
+
+        button {
+            background: #009c3b;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background: #006437;
+        }
+
+        #curiosidade {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #006437;
+        }
+
+        footer {
+            background: #003d24;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>🏆 Copa do Mundo</h1>
+        <p>Paixão, futebol e história em um só lugar!</p>
+    </header>
+
+    <nav>
+        <a href="#inicio">Início</a>
+        <a href="#historia">História</a>
+        <a href="#selecoes">Seleções</a>
+        <a href="#titulos">Títulos</a>
+    </nav>
+
+    <section id="inicio" class="hero">
+        <h2>Bem-vindo à Copa do Mundo!</h2>
+        <p>
+            A Copa do Mundo é um dos maiores eventos esportivos do planeta,
+            reunindo seleções de diferentes países em busca do título mundial.
+        </p>
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Maracana_Stadium.jpg"
+             alt="Estádio de futebol">
+    </section>
+
+    <section id="historia">
+        <h2>📖 História</h2>
+
+        <div class="cards">
+            <div class="card">
+                <h3>1930</h3>
+                <p>A primeira Copa do Mundo aconteceu no Uruguai.</p>
+            </div>
+
+            <div class="card">
+                <h3>Brasil</h3>
+                <p>O Brasil é a seleção que mais vezes conquistou a Copa do Mundo.</p>
+            </div>
+
+            <div class="card">
+                <h3>Grandes Craques</h3>
+                <p>Pelé, Maradona, Ronaldo, Messi e muitos outros marcaram a história.</p>
+            </div>
+
+            <div class="card">
+                <h3>O Troféu</h3>
+                <p>A atual taça é conhecida como Troféu da Copa do Mundo da FIFA.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="selecoes">
+        <h2>🌎 Grandes Seleções</h2>
+
+        <div class="cards">
+            <div class="card">
+                <h3>🇧🇷 Brasil</h3>
+                <p>Uma das maiores potências da história do futebol.</p>
+            </div>
+
+            <div class="card">
+                <h3>🇦🇷 Argentina</h3>
+                <p>Seleção tradicional e campeã mundial.</p>
+            </div>
+
+            <div class="card">
+                <h3>🇩🇪 Alemanha</h3>
+                <p>Uma das seleções mais vitoriosas da história.</p>
+            </div>
+
+            <div class="card">
+                <h3>🇫🇷 França</h3>
+                <p>Uma das grandes forças do futebol mundial.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="titulos">
+        <h2>🏆 Títulos Mundiais</h2>
+
+        <table class="tabela">
+            <tr>
+                <th>Seleção</th>
+                <th>Títulos</th>
+            </tr>
+
+            <tr>
+                <td>🇧🇷 Brasil</td>
+                <td>5</td>
+            </tr>
+
+            <tr>
+                <td>🇩🇪 Alemanha</td>
+                <td>4</td>
+            </tr>
+
+            <tr>
+                <td>🇮🇹 Itália</td>
+                <td>4</td>
+            </tr>
+
+            <tr>
+                <td>🇦🇷 Argentina</td>
+                <td>3</td>
+            </tr>
+
+            <tr>
+                <td>🇫🇷 França</td>
+                <td>2</td>
+            </tr>
+        </table>
+
+        <button onclick="mostrarCuriosidade()">
+            🎲 Mostrar curiosidade
+        </button>
+
+        <p id="curiosidade"></p>
+    </section>
+
+    <footer>
+        <p>⚽ Site sobre a Copa do Mundo</p>
+        <p>Feito com HTML, CSS e JavaScript</p>
+    </footer>
+
+    <script>
+        const curiosidades = [
+            "O Brasil é o único país que participou de todas as edições da Copa até 2022.",
+            "A primeira Copa do Mundo foi realizada em 1930.",
+            "Pelé é o único jogador a conquistar três Copas do Mundo.",
+            "A Copa do Mundo é um dos eventos esportivos mais assistidos do mundo.",
+            "A taça da Copa do Mundo pesa aproximadamente 6,2 kg."
+        ];
+
+        function mostrarCuriosidade() {
+            const numero = Math.floor(Math.random() * curiosidades.length);
+
+            document.getElementById("curiosidade").textContent =
+                curiosidades[numero];
+        }
+    </script>
+
+</body>
+</html>
